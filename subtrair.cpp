@@ -9,16 +9,16 @@ SC_MODULE(somador)
 	
 	sc_uint<8> aux;
 
-	void test_sum(){
+	void test_sub(){
 		
-		aux = A.read() + B.read();
+		aux = A.read() - B.read();
 
 		result.write(aux);
 	}
 
 	SC_CTOR(somador)
 	{
-		SC_METHOD(test_sum);
+		SC_METHOD(test_sub);
 		sensitive << A << B; 
 	}
 };

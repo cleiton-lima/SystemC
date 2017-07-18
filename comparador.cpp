@@ -1,24 +1,24 @@
 #include "systemc.h"
 using namespace sc_core;
 
-SC_MODULE(somador)
+SC_MODULE(comparador)
 {
 	sc_in<sc_uint<8> > A;
 	sc_in<sc_uint<8> > B;
-	sc_out<sc_uint<8> > result;
+	sc_out<bool> result;
 	
-	sc_uint<8> aux;
+	bool aux;
 
-	void test_sum(){
+	void test_comp(){
 		
-		aux = A.read() + B.read();
+		aux = A.read() == B.read();
 
 		result.write(aux);
 	}
 
-	SC_CTOR(somador)
+	SC_CTOR(comparador)
 	{
-		SC_METHOD(test_sum);
+		SC_METHOD(test_comp);
 		sensitive << A << B; 
 	}
 };
