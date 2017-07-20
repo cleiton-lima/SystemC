@@ -19,11 +19,12 @@ SC_MODULE(moore1){
 				case s2: z = 0; moore_state = a ? s2 : s3; break;
 				case s3: z = 1; moore_state = a ? s1 : s3; break;
 			}
-		cout << moore_state<<endl;
-	}
 
-	SC_CTOR(moore1){
-		SC_METHOD (pcr_moore);
-		sensitive<< clk;
-	}
-};
+			cout << moore_state<<endl;
+		}
+
+		SC_CTOR(moore1){
+			SC_METHOD (pcr_moore);
+			sensitive<< clk;
+		}
+	};
