@@ -1,15 +1,15 @@
 #include "systemc.h"
-using namespace sc_core;
 
-SC_MODULE(mult1)
+SC_MODULE(mux)
 {
 	sc_in<sc_uint<8> > A;
 	sc_in<sc_uint<8> > B;
-	
+	sc_in<bool> seletor;
+	sc_out<sc_uint<8> > result;
 	
 
 	void test_selet(){
-		switch (seletor){
+		switch (seletor.read()){
 			case(1):
 				result.write(A);
 				break;
@@ -21,7 +21,7 @@ SC_MODULE(mult1)
 		
 	}
 
-	SC_CTOR(mult1)
+	SC_CTOR(mux)
 	{
 		SC_METHOD(test_selet);
 		sensitive << seletor; 

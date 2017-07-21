@@ -1,5 +1,5 @@
 #include "systemc.h"
-using namespace sc_core;
+
 
 SC_MODULE(mult1)
 {
@@ -14,7 +14,7 @@ SC_MODULE(mult1)
 	
 
 	void test_selet(){
-		switch (seletor){
+		switch (seletor.read()){
 			case(1):
 				result.write(A);
 				break;

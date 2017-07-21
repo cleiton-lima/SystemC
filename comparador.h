@@ -1,5 +1,5 @@
 #include "systemc.h"
-using namespace sc_core;
+
 
 SC_MODULE(comparador)
 {

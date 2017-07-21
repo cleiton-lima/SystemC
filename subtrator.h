@@ -1,7 +1,6 @@
 #include "systemc.h"
-using namespace sc_core;
 
-SC_MODULE(somador)
+SC_MODULE(subtrator)
 {
 	sc_in<sc_uint<8> > A;
 	sc_in<sc_uint<8> > B;
@@ -16,7 +15,7 @@ SC_MODULE(somador)
 		result.write(aux);
 	}
 
-	SC_CTOR(somador)
+	SC_CTOR(subtrator)
 	{
 		SC_METHOD(test_sub);
 		sensitive << A << B; 
